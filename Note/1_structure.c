@@ -146,5 +146,22 @@
 		  io_numpages = 0}, {bkup_attime = 0, io_baseln_time = 0, io_bkuptime = 0,
 		  ndirty_pages_post_bkup = 0, io_numpages = 0}}, ha_server_state = 1, ha_file_status = 2,
 	  eof_lsa = {pageid = 5206, offset = 15680}, smallest_lsa_at_last_chkpt = {pageid = 5205,
-		offset = 7616}}
+		offset = 7616}
+	}
 
+-------------------------------------------------------------------------------------------------------
+
+[구동중에 찍어본 *log_buf]
+	{
+		fix_count = 1, recently_free = false, in_archive = false, pageid = 8969, phy_pageid = 2571, logpage = {
+		hdr = {logical_pageid = 8969, offset = 0, dummy1 = 0, dummy2 = 0}, area = "\b"}
+	}
+		
+[이건 *lrec]		
+	{
+		prev_tranlsa = {pageid = -1, offset = -1}, back_lsa = {pageid = 8969, offset = 8288}, forw_lsa = {
+		pageid = -1, offset = -1}, trid = 263267, type = LOG_END_OF_LOG
+	}
+
+[xasl cache에 sql_info log 찍힌거]
+	select [__t1].[host_year], [__t1].[event_code], [__t1].[athlete_code], [__t1].[stadium_code], [__t1].[nation_code], [__t1].[medal], [__t1].[game_date], [__t2].[code], [__t2].[name], [__t2].[gender], [__t2].[nation_code], [__t2].[event] from (select [game].[host_year], [game].[event_code], [game].[athlete_code], [game].[stadium_code], [game].[nation_code], [game].[medal], [game].[game_date] from [game] [game] where (inst_num()<= ?:0 )) [__t1] ([host_year], [event_code], [athlete_code], [stadium_code], [nation_code], [medal], [game_date]), (select [athlete].[code], [athlete].[name], [athlete].[gender], [athlete].[nation_code], [athlete].[event] from [athlete] [athlete] where (inst_num()<= ?:2 )) [__t2] ([code], [name], [gender], [nation_code], [event])?191="ko_KR";192="ko_KR";
