@@ -1,0 +1,45 @@
+(HA 기능 사용 시, 작동순서:
+	hb start 
+		-> HA process start 
+			-> server start, success 
+			-> copylogdb start, success 
+			-> applylogdb start, success
+		 -> HA process success 
+	-> hb success
+
+[applylogdb(slave): CUBRID HA 구성에서 slave 노드에 있는 복제 로그 반영 프로세스, 이 프로세스를 분석하면서 로그를 어떻게 반영하는지 확인]
+
+1) 작동순서에서 applylogdb start 부분이 src/executables/util_cs.c => applylogdb() 프로세스 실행 -> applylogdb() 분석
+	- logpath, max_mem_size, db_name 등 초기화
+	- path, db_name 등에 문제가 없으면, system parameter 초기화
+	- la_apply_log_file (database_name, log_path, max_mem_size, NULL) 함수 실행
+
+2) src/transaction/log_applier.c 내부에 la_apply_log_file 함수 분석
+	- 주석내용:
+/* la_apply_log_file() - apply the transaction log to the slave
+ *   database_name: apply database
+ *   log_path: log volume path for apply
+ *   max_mem_size: maximum memory size -> 입력 parameter들
+ *
+ * Note:
+ *      The main routine.
+ *         1. Initialize
+ *            . signal process
+ *            . get the log file name & IO page size
+ *         2. body (loop) - process the request
+ *            . catch the request
+ *            . if shutdown request --> process
+ */
+
+	- la_Info, 캐시, 로그헤더, pagesize, start_page id 등 각종 초기화 단계를 거침. 
+	- 가장 마지막으로 반영된 LSA를 저장함. LSA는 로그를 구분하는 ID.
+	
+	- Main Loop 시작(shutdown 신호 받을 때 까지)
+	- 내부 1st while문 시작(shudown 신호 OR final_lsa가 null이 될 때 까지)
+	- 내부 1st while문 내용
+		=> page_buffer release & decache
+		=> log_hdr fetch 해옴 & 각종 초기화
+		=> 각종 에러처리(로그 정보에 관한 잘 못된 내용들)
+	- 내부 2nd while문 시작(반영해야할 las의 pageid == log_buf->pageid 같으면, shutdown 신호 없으면) => 실제로 로그 반영하는 부분
+	- 내부 wnd while문 내용
+		=> 
