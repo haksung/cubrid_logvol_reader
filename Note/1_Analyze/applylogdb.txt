@@ -40,6 +40,27 @@
 		=> page_buffer release & decache
 		=> log_hdr fetch 해옴 & 각종 초기화
 		=> 각종 에러처리(로그 정보에 관한 잘 못된 내용들)
-	- 내부 2nd while문 시작(반영해야할 las의 pageid == log_buf->pageid 같으면, shutdown 신호 없으면) => 실제로 로그 반영하는 부분
+
+	- 내부 2nd while문 시작(반영해야할 las의 pageid == log_buf->pageid 같으면 && shutdown 신호 없으면) => 실제로 로그 반영하는 부분
 	- 내부 wnd while문 내용
-		=> 
+		=> lrec = LOG_GET_LOG_RECORD_HEADER(), 로그 헤더 가져와서 lrec에 저장
+		=> error = la_log_record_process(), 로그 레코드에 접근
+
+
+3) src/transaction/log_applier.c 내부 la_log_record_process 함수 분석
+	- apply = la_add_apply_list(lrec->trid), transaction id를 기준으로 commit된 순서대로 apply 해야할 trid를 정렬해놓은 list의 포인터를 넘겨줌.
+	- lrec->type을 기준으로 switch문 실행!
+		=> Replication일 때, apply_list에 추가
+		=> LOG_COMMIT일 때, eot_time 설정하고 la_set_commit_log(), commit_counts 숫자 갱신해줌.
+		=> while문(lsa_apply가 존재할때까지)
+		=> Do문, la_apply_commit_list(), commit list를 보고, target slave에 apply하는 함수
+			=> la_apply_repl_log() 내부에서 호출
+
+4) 같은 경로, la_apply_repl_log() 함수 분석
+	- apply =  la_find_apply_list (tranid), tranid를 기준으로 apply list를 가져옴
+	- item = apply->head, head에서 시작해서 log를 apply함
+	- while문(item)
+		=> total_repl_items++;
+		=> if(item->log_type == LOG_REPLICATION_DATA)
+		=> switch(item->item_type)으로, update, insert, delete, defalut로 나눠서 실행.
+		=> 여기서 부터 다시
