@@ -63,4 +63,5 @@
 		=> total_repl_items++;
 		=> if(item->log_type == LOG_REPLICATION_DATA)
 		=> switch(item->item_type)으로, update, insert, delete, defalut로 나눠서 실행.
-		=> 여기서 부터 다시
+		=> UPDATE_START, UPDATE_END, UPDATE 3가지를 묶은 case, la_apply_update_log (item) 실행.
+		=> 자세한 함수 내용은 applyinfo 프로세스를 분석한 후 다시 분석.
