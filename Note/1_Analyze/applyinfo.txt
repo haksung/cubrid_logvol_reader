@@ -1,2 +1,6 @@
 [HA를 구성했을 시, 복제되고 반영된 로그의 상태를 볼 수 있는 유틸리티]
-추후에 분석 예정
+=> Log Header를 읽는 유틸리티이기에 분석 가치 높음.
+
+1) src/executables/util_cs.c => applyinfo() 함수가 프로세스 실행
+
+
