@@ -157,7 +157,7 @@
 		hdr = {logical_pageid = 8969, offset = 0, dummy1 = 0, dummy2 = 0}, area = "\b"}
 	}
 		
-[이건 *lrec]		
+[구동중에 찍어본  *lrec]		
 	{
 		prev_tranlsa = {pageid = -1, offset = -1}, back_lsa = {pageid = 8969, offset = 8288}, forw_lsa = {
 		pageid = -1, offset = -1}, trid = 263267, type = LOG_END_OF_LOG
