@@ -2,5 +2,8 @@
 => Log Header를 읽는 유틸리티이기에 분석 가치 높음.
 
 1) src/executables/util_cs.c => applyinfo() 함수가 프로세스 실행
+=> applyinfo는 로그 볼륨을 읽어서, 정보를 출력해주는 함수.
+원하는 정보가 가장 많은 유틸리티.
 
+이를 기반으로 개발
 
