@@ -1,0 +1,71 @@
+
+Time: 09/19/17 12:16:19.183 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 1
+In line 1, column 8 before '  '
+Syntax error: unexpected 'tables', expecting CLASS or TABLE
+
+Time: 09/19/17 12:16:25.728 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 2
+In line 1, column 14 before END OF STATEMENT
+Syntax error: unexpected ';'
+
+Time: 09/19/17 12:16:41.922 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 3
+In line 1, column 13 before '; '
+Syntax error: unexpected 'asd', expecting SELECT or VALUE or VALUES or '('
+
+Time: 09/19/17 12:16:52.609 - SYNTAX ERROR *** file ../src/parser/query_result.c, line 390 ERROR CODE = -494 Tran = 1, EID = 4
+Semantic: before ' ; '
+There are no attributes in asd. 
+
+Time: 09/19/17 12:16:52.609 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 5
+before ' ; '
+There are no attributes in asd.
+
+Time: 09/19/17 12:17:05.539 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 6
+In line 1, column 1 before END OF STATEMENT
+Syntax error: unexpected 'exit', expecting SELECT or VALUE or VALUES or '('
+
+Time: 09/19/17 12:17:08.223 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 7
+In line 1, column 1 before '; '
+Syntax error: unexpected 'quit', expecting SELECT or VALUE or VALUES or '('
+
+Time: 09/19/17 12:17:10.348 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 8
+In line 1, column 1 before END OF STATEMENT
+Syntax error: unexpected 'q', expecting SELECT or VALUE or VALUES or '('
+
+Time: 09/19/17 12:17:11.791 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 9
+In line 1, column 1 before '; '
+Syntax error: unexpected 'ex', expecting SELECT or VALUE or VALUES or '('
+
+Time: 09/19/17 12:17:12.731 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 10
+In line 1, column 1 before '; '
+Syntax error: unexpected 'x', expecting SELECT or VALUE or VALUES or '('
+
+Time: 09/19/17 12:17:16.923 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 11
+In line 1, column 1 before END OF STATEMENT
+Syntax error: unexpected 'end', expecting SELECT or VALUE or VALUES or '('
+
+Time: 09/19/17 12:17:23.095 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 12
+In line 6, column 1 before END OF STATEMENT
+Syntax error: unexpected 'ls', expecting SELECT or VALUE or VALUES or '('
+
+Time: 09/19/17 12:17:26.779 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 13
+In line 1, column 1 before '; '
+Syntax error: unexpected 'help', expecting SELECT or VALUE or VALUES or '('
+
+Time: 09/19/17 12:17:30.064 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 14
+In line 1, column 1 before 'help; '
+Syntax error: unexpected '-', expecting SELECT or VALUE or VALUES or '('
+
+Time: 09/19/17 12:17:33.222 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 15
+In line 1, column 1 before '; '
+Syntax error: unexpected 'quit', expecting SELECT or VALUE or VALUES or '('
+
+Time: 09/19/17 12:17:36.585 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 16
+In line 1, column 1 before '; '
+Syntax error: unexpected 'exit', expecting SELECT or VALUE or VALUES or '('
+
+Time: 09/19/17 12:17:59.327 - SYNTAX ERROR *** file ../src/compat/db_vdb.c, line 1001 ERROR CODE = -492 Tran = 1, EID = 17
+In line 2, column 1 before END OF STATEMENT
+Syntax error: unexpected 'asd', expecting SELECT or VALUE or VALUES or '('
+
+*** The previous error message is the last one. ***
+
