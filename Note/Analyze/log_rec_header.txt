@@ -1,0 +1,16 @@
+[log record를 할 때 사용하는 헤더]
+=> 이 구조체를 사용해서, 실제로 저장.
+
+/* Description of a log record */
+typedef struct log_rec_header LOG_RECORD_HEADER;
+struct log_rec_header
+{
+  LOG_LSA prev_tranlsa;		/* Address of previous log record for the
+				 * same transaction
+				 */
+  LOG_LSA back_lsa;		/* Backward log address                      */
+  LOG_LSA forw_lsa;		/* Forward  log address                      */
+  TRANID trid;			/* Transaction identifier of the log record  */
+  LOG_RECTYPE type;		/* Log record type (e.g., commit, abort)     */
+};
+=> 바로 전 트랜잭션, 앞, 뒤 LSA, 현재 트랜잭션 ID, Record 하고 있는 로그의 type을 저장할 수 있다.
